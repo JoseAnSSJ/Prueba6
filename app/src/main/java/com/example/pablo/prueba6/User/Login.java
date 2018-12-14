@@ -5,7 +5,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.graphics.Color;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
@@ -19,8 +19,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.pablo.prueba6.Notificaciones;
-import com.example.pablo.prueba6.Orden;
 import com.example.pablo.prueba6.R;
 import com.example.pablo.prueba6.acivity_navegation;
 
@@ -35,10 +33,9 @@ public class Login extends AppCompatActivity {
     String user;
     public static String enco;
     UserController userController = new UserController();
-    public PendingIntent pendingIntent;
     public final static String CHANNEL_ID = "NOTIFICACION";
     public final static int NOTIFICACION_ID = 0;
-    Notificaciones notificaciones = new Notificaciones();
+
 
 
 

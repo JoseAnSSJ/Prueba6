@@ -33,7 +33,7 @@ UserModel.Token="";
                    startActivity(intento);
                }
                catch (Exception e){
-                   
+
                }
 
             }

@@ -34,7 +34,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Reportes"/>
-<activity android:name=".Notificaciones"/>
         <activity android:name=".User.UserController">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
