@@ -76,12 +76,6 @@ public class acivity_navegation extends AppCompatActivity
 
 
         PieDataSet dataSet = new PieDataSet(yValues, "SofTV");
-        final int[] MY_COLORS = {Color.BLUE, Color.BLACK, Color.DKGRAY, Color.RED, Color.MAGENTA};
-        ArrayList<Integer> colors = new ArrayList<>();
-
-        for(int c: MY_COLORS) colors.add(c);
-
-        dataSet.setColors(colors);
         dataSet.setSliceSpace(3f);
         dataSet.setSelectionShift(5f);
         dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
