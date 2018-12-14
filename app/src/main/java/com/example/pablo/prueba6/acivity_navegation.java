@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.pablo.prueba6.User.Login;
 import com.example.pablo.prueba6.User.UserController;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -58,13 +59,13 @@ public class acivity_navegation extends AppCompatActivity
         }
 
         /*
-        * Grafica de Pastek
+        * Grafica de Pastel
         * */
 
         pieChart.setUsePercentValues(true);
         pieChart.getDescription().setEnabled(false);
         pieChart.setExtraOffsets(5, 10, 5, 5);
-        pieChart.setDragDecelerationFrictionCoef(20f);
+        pieChart.setDragDecelerationFrictionCoef(1f);
         pieChart.setDrawHoleEnabled(false);
         pieChart.setHoleColor(android.R.color.white);
         pieChart.setTransparentCircleRadius(1f);
@@ -76,14 +77,24 @@ public class acivity_navegation extends AppCompatActivity
         yValues.add(new PieEntry(10f,"ReportesRealizados"));
 
 
+
+
+
         PieDataSet dataSet = new PieDataSet(yValues, "SofTV");
+        final int[] MY_COLORS = {Color.BLUE, Color.BLACK, Color.DKGRAY, Color.RED, Color.MAGENTA};
+        ArrayList<Integer> colors = new ArrayList<>();
+
+        for(int c: MY_COLORS) colors.add(c);
+
+        dataSet.setColors(colors);
         dataSet.setSliceSpace(3f);
         dataSet.setSelectionShift(5f);
         dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        dataSet.setHighlightEnabled(true);
 
         PieData data = new PieData((dataSet));
         data.setValueTextSize(10f);
-        data.setValueTextColor(Color.YELLOW);
+        data.setValueTextColor(Color.BLACK);
         pieChart.setData(data);
 
 /*

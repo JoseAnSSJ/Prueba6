@@ -33,7 +33,7 @@ UserModel.Token="";
                    startActivity(intento);
                }
                catch (Exception e){
-                   Toast.makeText(getApplicationContext(), "No estas logeado"+ e, Toast.LENGTH_LONG).show();
+                   
                }
 
             }
