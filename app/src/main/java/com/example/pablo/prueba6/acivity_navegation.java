@@ -64,10 +64,10 @@ public class acivity_navegation extends AppCompatActivity
         pieChart.setUsePercentValues(true);
         pieChart.getDescription().setEnabled(false);
         pieChart.setExtraOffsets(5, 10, 5, 5);
-        pieChart.setDragDecelerationFrictionCoef(5f);
+        pieChart.setDragDecelerationFrictionCoef(20f);
         pieChart.setDrawHoleEnabled(false);
         pieChart.setHoleColor(android.R.color.white);
-        pieChart.setTransparentCircleRadius(10f);
+        pieChart.setTransparentCircleRadius(1f);
 
         ArrayList<PieEntry> yValues = new ArrayList<>();
         yValues.add(new PieEntry(40f,"OrdenesPendientes"));
@@ -127,12 +127,8 @@ public class acivity_navegation extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
