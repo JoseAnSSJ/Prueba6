@@ -48,15 +48,8 @@
         android:layout_marginBottom="48dp"
         android:text="Entrar"
         android:textSize="30dp"
-        android:id="@+id/entrar"
-        />
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="token"
-    android:id="@+id/token"
-    android:onClick="noti"
-    />
+        android:id="@+id/entrar"></Button>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pablo.prueba6.R;
+import com.example.pablo.prueba6.Request.RequestTecnico;
 import com.example.pablo.prueba6.acivity_navegation;
 
 public class Login extends AppCompatActivity {
@@ -29,10 +30,10 @@ public class Login extends AppCompatActivity {
 
     EditText usurio, contraseña;
     Button entrar, token;
-    TextView tokenn;
     String user;
     public static String enco;
     UserController userController = new UserController();
+    RequestTecnico requestTecnico = new RequestTecnico();
     public final static String CHANNEL_ID = "NOTIFICACION";
     public final static int NOTIFICACION_ID = 0;
 
@@ -46,9 +47,7 @@ public class Login extends AppCompatActivity {
         usurio = (EditText) findViewById(R.id.usurio);
         contraseña = (EditText) findViewById(R.id.contraseña);
         entrar = (Button)findViewById(R.id.entrar);
-        token = (Button)findViewById(R.id.token);
-        tokenn= (TextView)findViewById(R.id.tokenview);
-
+/*
         token.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +55,7 @@ public class Login extends AppCompatActivity {
                 createNotification();
             }
         });
+        */
 
 
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
@@ -85,6 +85,7 @@ public class Login extends AppCompatActivity {
 
                 user = usurio.getText().toString() + ":" + contraseña.getText().toString();
                 enco = (android.util.Base64.encodeToString(user.getBytes(), android.util.Base64.NO_WRAP));
+                requestTecnico.clv_tec();
                 userController.getReviews();
                 if (UserController.b=true){
                     userController.getReviews();
@@ -96,7 +97,8 @@ public class Login extends AppCompatActivity {
         });
     }
     public void noti(){
-
+        createNotificationChannel();
+        createNotification();
 
     }
     public void createNotificationChannel(){

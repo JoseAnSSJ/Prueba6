@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pablo.prueba6.User.Login;
@@ -29,6 +30,7 @@ public class acivity_navegation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     PieChart pieChart;
+    public static TextView clv;
 
 
     @Override
@@ -38,6 +40,7 @@ public class acivity_navegation extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         pieChart =(PieChart)findViewById(R.id.pastel);
+        clv= (TextView)findViewById(R.id.txtv1);
 
 
         try {

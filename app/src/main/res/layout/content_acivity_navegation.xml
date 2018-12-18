@@ -86,6 +86,13 @@
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="5dp"
                 android:text="xxxxxxxxxxxxxxx" />
+            <TextView
+                android:id="@+id/txtv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:text="" />
         </LinearLayout>
 
     </ScrollView>
