@@ -13,6 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,10 +33,12 @@ public class Login extends AppCompatActivity {
     Button entrar, token;
     String user;
     public static String enco;
+    public static String cvl_usuario;
     UserController userController = new UserController();
     RequestTecnico requestTecnico = new RequestTecnico();
     public final static String CHANNEL_ID = "NOTIFICACION";
     public final static int NOTIFICACION_ID = 0;
+    public static TextView clave;
 
 
 
@@ -47,6 +50,8 @@ public class Login extends AppCompatActivity {
         usurio = (EditText) findViewById(R.id.usurio);
         contraseña = (EditText) findViewById(R.id.contraseña);
         entrar = (Button)findViewById(R.id.entrar);
+        clave = (TextView)findViewById(R.id.tokenview);
+        cvl_usuario= usurio.getText().toString();
 /*
         token.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +91,7 @@ public class Login extends AppCompatActivity {
                 user = usurio.getText().toString() + ":" + contraseña.getText().toString();
                 enco = (android.util.Base64.encodeToString(user.getBytes(), android.util.Base64.NO_WRAP));
                 requestTecnico.clv_tec();
+
                 userController.getReviews();
                 if (UserController.b=true){
                     userController.getReviews();
