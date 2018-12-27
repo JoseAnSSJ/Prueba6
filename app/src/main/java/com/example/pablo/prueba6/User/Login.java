@@ -24,6 +24,8 @@ import com.example.pablo.prueba6.R;
 import com.example.pablo.prueba6.Request.RequestTecnico;
 import com.example.pablo.prueba6.acivity_navegation;
 
+import org.json.JSONException;
+
 public class Login extends AppCompatActivity {
     /*
      *Login
@@ -90,10 +92,13 @@ public class Login extends AppCompatActivity {
 
                 user = usurio.getText().toString() + ":" + contraseña.getText().toString();
                 enco = (android.util.Base64.encodeToString(user.getBytes(), android.util.Base64.NO_WRAP));
-                requestTecnico.clv_tec();
-
                 userController.getReviews();
                 if (UserController.b=true){
+                    try {
+                        requestTecnico.getClv_tecnico();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     userController.getReviews();
                     Toast.makeText(getApplicationContext(),"Bienvenido",Toast.LENGTH_LONG).show();
                     Intent intento = new Intent(Login.this, acivity_navegation.class);

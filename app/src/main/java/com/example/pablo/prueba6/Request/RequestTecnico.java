@@ -7,7 +7,9 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -28,76 +30,38 @@ import com.example.pablo.prueba6.sampledata.RestApiAdapter;
 import com.example.pablo.prueba6.sampledata.Service;
 import com.google.gson.JsonObject;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RequestTecnico extends AppCompatActivity {
-    public String url = ROOT_URL + URL_GET_TECNICO;
-    String abc = "Basic " + Login.enco;
+    public ArrayList<TecnicoModel> data;
 
-
-    public void clv_tec() {
-        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-        Map<String, String> params = new HashMap<String, String>();
-
-        params.put("Clv_Usuario", "" + Login.cvl_usuario);
-
-
-        JSONObject parameter = new JSONObject(params);
-
-        OkHttpClient client = new OkHttpClient();
-
-        final RequestBody body = RequestBody.create(JSON, parameter.toString());
-
-        Request request = new Request.Builder().url(url).post(body).addHeader("content-type", "application/json; charset=utf-8").addHeader("Authorization", "Basic " + Login.enco).build();
-
-
-    /*    final List<String> lista = new ArrayList();
-
-        RestApiAdapter restApiAdapter = new RestApiAdapter();
-        Service service = restApiAdapter.getClientService();
-        Call<JsonObject> call = service.getDataUser();
-        call.enqueue(new Callback<JsonObject>() {
-                         @Override
-                         public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                             JsonObject userJson = response.body().getAsJsonObject("Get_ClvTecnicoResult");
-                             Log.d("response4", userJson.get("BaseIdUser").getAsString());
-                             Log.d("response5", userJson.get("BaseRemoteIp").getAsString());
-                             Log.d("response6", userJson.get("clv_tecnico").getAsString());
-                             Log.d("response7", userJson.get("Tecnico").getAsString());
-                             UserModel user = new UserModel(userJson.get("BaseIdUser").getAsString(),
-                                     userJson.get("BaseRemoteIp").getAsString(),
-                                     userJson.get("clv_tecnico").getAsString(),
-                                     userJson.get("Tecnico").getAsString());
-                         }
-
-                         @Override
-                         public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                         }
-                     });
-    }
-}*/
-
-      client.newCall(request).enqueue(new okhttp3.Callback() {
-
-            @Override
-            public void onResponse(okhttp3.Call call, okhttp3.Response response) throws IOException {
-                Log.e("response", response.body().string());
-
-
+    public void getClv_tecnico() throws JSONException {
+    RestApiAdapter restApiAdapter = new RestApiAdapter();
+    Service service = restApiAdapter.getTecService();
+    Call<JSONResponseTecnico> call = service.getDataTec();
+            call.enqueue(new Callback<JSONResponseTecnico>() {
+        @Override
+        public void onResponse(Call<JSONResponseTecnico> call, Response<JSONResponseTecnico> response) {
+            JSONResponseTecnico jsonResponse = response.body();
+            data = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
+                   /* for(int i = 0; i<= data.size(); i= i++){
+                        Log.d("response", data.get(i));
+                    }*/
+            Iterator<TecnicoModel> iteData = data.iterator();
+            while (iteData.hasNext()){
+                TecnicoModel dat = iteData.next();
+                Log.d("response", dat.getClv_tecnico() );
             }
+        }
 
-            @Override
-            public void onFailure(okhttp3.Call call, IOException e) {
-                Log.e("response", call.request().body().toString());
+        @Override
+        public void onFailure(Call<JSONResponseTecnico> call, Throwable t) {
 
-            }
-
-
-        });
+        }
+});
     }
 }
-
 
 
 
