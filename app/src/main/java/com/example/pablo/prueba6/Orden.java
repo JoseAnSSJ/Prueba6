@@ -32,8 +32,8 @@ public class Orden extends AppCompatActivity {
         orden.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intento1 = new Intent(Orden.this, acivity_navegation.class);
-                startActivity(intento1);
+        //        Intent intento1 = new Intent(Orden.this, acivity_navegation.class);
+        //        startActivity(intento1);
             }
         });
 
