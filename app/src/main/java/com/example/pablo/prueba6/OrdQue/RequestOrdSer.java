@@ -29,6 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static java.util.Arrays.*;
 
 public class RequestOrdSer extends AppCompatActivity {
+    public static int OE,OP,OV,RE,RP,REP,RV;
     ArrayList<List<OrdSer>> dataord;
     ArrayList<List<Queja>> dataque;
 
@@ -81,6 +82,9 @@ public class RequestOrdSer extends AppCompatActivity {
                         Log.d("response9", dat.get(i).getStatus());
                         Log.d("response10", String.valueOf(dat.get(i).getTotal()));
                     }
+                    OE = dat.get(0).getTotal();
+                    OP = dat.get(1).getTotal();
+                    OV = dat.get(2).getTotal();
                 }
 
             }
@@ -118,6 +122,10 @@ public class RequestOrdSer extends AppCompatActivity {
                         Log.d("response7", dat.get(i).getStatus());
                         Log.d("response8", String.valueOf(dat.get(i).getTotal()));
                     }
+                    RE=dat.get(0).getTotal();
+                    RP=dat.get(1).getTotal();
+                    REP=dat.get(2).getTotal();
+                    RV=dat.get(3).getTotal();
                 }
             }
             @Override

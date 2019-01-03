@@ -27,6 +27,14 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
+import static com.example.pablo.prueba6.OrdQue.RequestOrdSer.OE;
+import static com.example.pablo.prueba6.OrdQue.RequestOrdSer.OP;
+import static com.example.pablo.prueba6.OrdQue.RequestOrdSer.OV;
+import static com.example.pablo.prueba6.OrdQue.RequestOrdSer.RE;
+import static com.example.pablo.prueba6.OrdQue.RequestOrdSer.REP;
+import static com.example.pablo.prueba6.OrdQue.RequestOrdSer.RP;
+import static com.example.pablo.prueba6.OrdQue.RequestOrdSer.RV;
+
 
 public class acivity_navegation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -72,10 +80,13 @@ RequestTecnico requestTecnico = new RequestTecnico();
         pieChart.setTransparentCircleRadius(1f);
 
         ArrayList<PieEntry> yValues = new ArrayList<>();
-        yValues.add(new PieEntry(40f,"OrdenesPendientes"));
-        yValues.add(new PieEntry(10f,"OrdenesRealizadas"));
-        yValues.add(new PieEntry(40f,"ReportesPendientes"));
-        yValues.add(new PieEntry(10f,"ReportesRealizados"));
+        yValues.add(new PieEntry(OE,"Ordenes Ejecutados"));
+        yValues.add(new PieEntry(OP,"Ordenes Pendientes"));
+        yValues.add(new PieEntry(OV,"Ordenes En Visita"));
+        yValues.add(new PieEntry(RE,"Reportes Ejecutados"));
+        yValues.add(new PieEntry(RP,"Reportes Pendiente"));
+        yValues.add(new PieEntry(REP,"Reportes En Proceso"));
+        yValues.add(new PieEntry(RV,"Reportes En Visita"));
 
 
 
