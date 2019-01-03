@@ -32,20 +32,16 @@ public class Orden extends AppCompatActivity {
         orden.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-        //        Intent intento1 = new Intent(Orden.this, acivity_navegation.class);
-        //        startActivity(intento1);
+                Intent intento1 = new Intent(Orden.this, acivity_navegation.class);
+                startActivity(intento1);
             }
         });
 
         confi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
                     Intent intento2 = new Intent(Orden.this, UserConfig.class);
                     startActivity(intento2);
-                }catch (Exception e){
-                    Toast.makeText(getApplicationContext(), "No estas logeado"+ e, Toast.LENGTH_LONG).show();
-                }
             }
         });
 try {

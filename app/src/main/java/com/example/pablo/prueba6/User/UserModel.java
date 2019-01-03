@@ -5,13 +5,15 @@ public class UserModel {
     public static String Token;
     private String TipoUser;
     private String IdUsuario;
+    public static String Codigo;
 
 
-    public UserModel(String Usuario, String Token, String TipoUser, String IdUsuario) {
+    public UserModel(String Usuario, String Token, String TipoUser, String IdUsuario, String codigo) {
         this.Usuario = Usuario;
         this.Token = Token;
         this.TipoUser = TipoUser;
         this.IdUsuario = IdUsuario;
+        this.Codigo=codigo;
 
     }
 
@@ -47,4 +49,11 @@ public class UserModel {
         this.IdUsuario = IdUsuario;
     }
 
+    public String getCodigo() {
+        return Codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        Codigo = codigo;
+    }
 }

@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pablo.prueba6.Request.RequestTecnico;
+import com.example.pablo.prueba6.Request.TecnicoModel;
 import com.example.pablo.prueba6.User.Login;
 import com.example.pablo.prueba6.User.UserController;
 import com.github.mikephil.charting.charts.PieChart;
@@ -28,9 +30,9 @@ import java.util.ArrayList;
 
 public class acivity_navegation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+RequestTecnico requestTecnico = new RequestTecnico();
     PieChart pieChart;
-    public static TextView clv;
+    public static TextView trabajo, direccion;
 
 
     @Override
@@ -40,8 +42,9 @@ public class acivity_navegation extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         pieChart =(PieChart)findViewById(R.id.pastel);
-        clv= (TextView)findViewById(R.id.txtv1);
-
+        trabajo= (TextView)findViewById(R.id.proximotrabajo);
+        direccion = (TextView)findViewById(R.id.direccion);
+        trabajo.setText(TecnicoModel.BaseIdUser);
 
         try {
 
@@ -107,6 +110,7 @@ public class acivity_navegation extends AppCompatActivity
 
 
     }
+
 
     @Override
     public void onBackPressed() {

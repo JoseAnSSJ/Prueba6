@@ -6,6 +6,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 
+
+import com.example.pablo.prueba6.Request.RequestTecnico;
 import com.example.pablo.prueba6.sampledata.RestApiAdapter;
 import com.example.pablo.prueba6.sampledata.Service;
 import com.google.gson.JsonObject;
@@ -21,6 +23,7 @@ import retrofit2.Response;
 
 public class UserController extends AppCompatActivity{
     public static boolean b;
+RequestTecnico requestTecnico= new  RequestTecnico();
 
 
     public void getReviews() {
@@ -40,10 +43,12 @@ public class UserController extends AppCompatActivity{
                             userJson.get("Usuario").getAsString(),
                             userJson.get("Token").getAsString(),
                             userJson.get("TipoUser").getAsString(),
-                            userJson.get("IdUsuario").getAsString()
+                            userJson.get("IdUsuario").getAsString(),
+                            userJson.get("Codigo").getAsString()
                     );
 
                     b = true;
+                    requestTecnico.getClv_tecnico();
 
 
                 }
