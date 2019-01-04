@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +43,7 @@ public class acivity_navegation extends AppCompatActivity
 RequestTecnico requestTecnico = new RequestTecnico();
     PieChart pieChart;
     public static TextView trabajo, direccion;
+    Button grafica;
 
 
     @Override
@@ -51,9 +54,9 @@ RequestTecnico requestTecnico = new RequestTecnico();
         setSupportActionBar(toolbar);
         pieChart =(PieChart)findViewById(R.id.pastel);
         trabajo= (TextView)findViewById(R.id.proximotrabajo);
+        grafica=(Button)findViewById(R.id.grafica);
         direccion = (TextView)findViewById(R.id.direccion);
         trabajo.setText(TecnicoModel.BaseIdUser);
-
         try {
 
             if (UserController.b != true) {
@@ -71,37 +74,45 @@ RequestTecnico requestTecnico = new RequestTecnico();
         * Grafica de Pastel
         * */
 
-        pieChart.setUsePercentValues(true);
-        pieChart.getDescription().setEnabled(false);
-        pieChart.setExtraOffsets(5, 10, 5, 5);
-        pieChart.setDragDecelerationFrictionCoef(1f);
-        pieChart.setDrawHoleEnabled(false);
-        pieChart.setHoleColor(android.R.color.white);
-        pieChart.setTransparentCircleRadius(1f);
 
-        ArrayList<PieEntry> yValues = new ArrayList<>();
-        yValues.add(new PieEntry(OE,"Ordenes Ejecutados"));
-        yValues.add(new PieEntry(OP,"Ordenes Pendientes"));
-        yValues.add(new PieEntry(OV,"Ordenes En Visita"));
-        yValues.add(new PieEntry(RE,"Reportes Ejecutados"));
-        yValues.add(new PieEntry(RP,"Reportes Pendiente"));
-        yValues.add(new PieEntry(REP,"Reportes En Proceso"));
-        yValues.add(new PieEntry(RV,"Reportes En Visita"));
+        grafica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestTecnico.getClv_tecnico();
+                pieChart.setUsePercentValues(true);
+                pieChart.getDescription().setEnabled(false);
+                pieChart.setExtraOffsets(5, 10, 5, 5);
+                pieChart.setDragDecelerationFrictionCoef(1f);
+                pieChart.setDrawHoleEnabled(false);
+                pieChart.setHoleColor(android.R.color.white);
+                pieChart.setTransparentCircleRadius(1f);
+
+                ArrayList<PieEntry> yValues = new ArrayList<>();
+                yValues.add(new PieEntry(OE,"OE"));
+                yValues.add(new PieEntry(OP,"OP"));
+                yValues.add(new PieEntry(OV,"OV"));
+                yValues.add(new PieEntry(RE,"RE"));
+                yValues.add(new PieEntry(RP,"RP"));
+                yValues.add(new PieEntry(REP,"REnP"));
+                yValues.add(new PieEntry(RV,"RV"));
 
 
 
 
+                PieDataSet dataSet = new PieDataSet(yValues, "");
+                dataSet.setSliceSpace(7f);
+                dataSet.setSelectionShift(10f);
+                dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+                dataSet.setHighlightEnabled(true);
 
-        PieDataSet dataSet = new PieDataSet(yValues, "SofTV");
-        dataSet.setSliceSpace(3f);
-        dataSet.setSelectionShift(5f);
-        dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
-        dataSet.setHighlightEnabled(true);
+                PieData data = new PieData((dataSet));
+                data.setValueTextSize(15f);
+                data.setValueTextColor(Color.BLACK);
+                pieChart.setData(data);
 
-        PieData data = new PieData((dataSet));
-        data.setValueTextSize(10f);
-        data.setValueTextColor(Color.BLACK);
-        pieChart.setData(data);
+                Toast.makeText(getApplicationContext(), "Toca la grafica", Toast.LENGTH_LONG).show();
+            }
+        });
 
 /*
 * meu

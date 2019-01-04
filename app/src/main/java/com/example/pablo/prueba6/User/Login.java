@@ -92,9 +92,6 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Bienvenido",Toast.LENGTH_LONG).show();
                     Intent intento = new Intent(Login.this, acivity_navegation.class);
                    startActivity(intento);
-
-
-
                 }
             }
         });
@@ -125,6 +122,13 @@ public class Login extends AppCompatActivity {
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
         notificationManagerCompat.notify(NOTIFICACION_ID, builder.build());
 
+    }
+    public static void esperar(int segundos){
+        try {
+            Thread.sleep(segundos * 1000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
 }

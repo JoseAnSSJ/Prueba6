@@ -29,6 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static java.util.Arrays.*;
 
 public class RequestOrdSer extends AppCompatActivity {
+    public static int clave;
     public static int OE,OP,OV,RE,RP,REP,RV;
     ArrayList<List<OrdSer>> dataord;
     ArrayList<List<Queja>> dataque;
@@ -36,7 +37,7 @@ public class RequestOrdSer extends AppCompatActivity {
 
     public Service getOrdSerService() throws JSONException {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("clv_tecnico", 20041);
+        jsonObject.put("clv_tecnico", clave);
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         final RequestBody body = RequestBody.create(JSON, jsonObject.toString());
 
@@ -82,9 +83,9 @@ public class RequestOrdSer extends AppCompatActivity {
                         Log.d("response9", dat.get(i).getStatus());
                         Log.d("response10", String.valueOf(dat.get(i).getTotal()));
                     }
-                    OE = dat.get(0).getTotal();
-                    OP = dat.get(1).getTotal();
-                    OV = dat.get(2).getTotal();
+                    OE=dat.get(0).getTotal();
+                    OP=dat.get(1).getTotal();
+                    OV=dat.get(2).getTotal();
                 }
 
             }

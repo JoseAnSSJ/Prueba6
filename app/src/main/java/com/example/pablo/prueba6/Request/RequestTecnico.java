@@ -95,6 +95,7 @@ try {
                 TecnicoModel dat = iteData.next();
                 Log.d("response5", dat.getClv_tecnico());
                 clave_tecnico=dat.getClv_tecnico();
+                requestOrdSer.clave = Integer.parseInt(dat.clv_tecnico);
             }
             requestProxCita.getProximaCita();
             try {
